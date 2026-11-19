@@ -1,0 +1,68 @@
+###
+POST http://127.0.0.1:8000/api/register/
+Content-Type: application/json
+
+{
+    "username":"ansa",
+    "email":"ansa@gmail.com",
+    "password":"ansa@123"
+}
+
+###
+POST http://127.0.0.1:8000/api/login/
+Content-Type: application/json
+
+{
+    "username":"jisna",
+    "password":"jisna@123"
+}
+
+###
+POST http://127.0.0.1:8000/api/login/
+Content-Type: application/json
+
+{
+    "username":"ansa",
+    "password":"ansa@123"
+}
+
+###
+GET http://127.0.0.1:8000/api/notes/
+Accept: application/json
+Authorization: Token 3b930865a7e8ac8c606d366cf0d9cfc31d37f212
+
+
+###
+POST http://127.0.0.1:8000/api/notes/
+Content-Type: application/json
+Authorization: Token 3b930865a7e8ac8c606d366cf0d9cfc31d37f212
+
+{
+    "title":"Python notes",
+    "description":"Introduction to python"
+}
+
+
+###
+GET http://127.0.0.1:8000/api/notes/1/
+Accept: application/json
+Authorization: Token 3b930865a7e8ac8c606d366cf0d9cfc31d37f212
+
+###
+PUT http://127.0.0.1:8000/api/notes/2/
+Content-Type: application/json
+Authorization: Token 3b930865a7e8ac8c606d366cf0d9cfc31d37f212
+
+{
+    "title":"Java notes",
+    "description":"Introduction to Java"
+}
+
+###
+DELETE http://127.0.0.1:8000/api/notes/3/
+Authorization: Token 3b930865a7e8ac8c606d366cf0d9cfc31d37f212
+
+###
+POST http://127.0.0.1:8000/api/logout/
+Content-Type: application/json
+Authorization: Token 3b930865a7e8ac8c606d366cf0d9cfc31d37f212
