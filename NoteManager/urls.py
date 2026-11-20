@@ -18,15 +18,22 @@ from django.contrib import admin
 from django.urls import path
 from notes_app import views as v
 from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/register/', v.RegistrationView.as_view()),
     path('api/login/', obtain_auth_token),
+
     path('api/notes/', v.NotesListCreateView.as_view()),
     path('api/notes/<int:pk>/', v.NotesRetreiveUpdateDeleteView.as_view()),
+    
     path('api/logout/', v.LogoutView.as_view()),
 
+    path('api/jwt_login/', TokenObtainPairView.as_view()),
+    path('api/refresh/', TokenRefreshView.as_view()),
+    path('api/tasks/', v.TaskListCreateView.as_view()),
 
+    path('api/tasks/<int:id>/', v.TokenRetrieveUpdateDeleteView.as_view()),
 ]

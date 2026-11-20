@@ -66,3 +66,65 @@ Authorization: Token 3b930865a7e8ac8c606d366cf0d9cfc31d37f212
 POST http://127.0.0.1:8000/api/logout/
 Content-Type: application/json
 Authorization: Token 3b930865a7e8ac8c606d366cf0d9cfc31d37f212
+
+
+###
+POST http://127.0.0.1:8000/api/jwt_login/
+Content-Type: application/json
+
+{
+    "username":"ansa",
+    "password":"ansa@123"
+}
+
+
+###
+GET http://127.0.0.1:8000/api/tasks/
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTY0MTg0LCJpYXQiOjE3OTUxNjM4ODQsImp0aSI6Ijg0MDQ3ZjNiZDgxZDRjZmRiNGE3ZGM4OGE2MDlmNTRiIiwidXNlcl9pZCI6IjMifQ.wvV6Vu70IobnBcff_gXDvzrldd__VeHKvdxL_kZNvg4
+
+
+###
+POST http://127.0.0.1:8000/api/tasks/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTY0MzE4LCJpYXQiOjE3OTUxNjQwMTgsImp0aSI6IjNiOTI1NWY2YWFhNTQxNjJhNTU0M2JiM2Y0NTc5ZDM0IiwidXNlcl9pZCI6IjEifQ.9KEY5Y5LRpCQ0D9uhiyCv2QzkVgBVZNHsFCEAuOJpbY
+
+{
+    "title":"Factorial program",
+    "description":"Find the factorial of given number",
+    "due_date":"2026-11-19"
+}
+
+# Jisna
+###
+POST http://127.0.0.1:8000/api/refresh/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTYyODY5LCJpYXQiOjE3OTUxNjI1NjksImp0aSI6ImM3NDhhNGVlODBkNjQ5MWRiNmIyOGUwZmU2ZTYwYTk2IiwidXNlcl9pZCI6IjEifQ.MF2THIJLrwr_6ziGqnvMtHK-wX2FPteqdt_vg8_uWCo
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NTI0ODk2OSwiaWF0IjoxNzk1MTYyNTY5LCJqdGkiOiJhZjE3ZGI1MGQzMDU0M2Y0ODZiM2FhYzFiOWE0OTI1NyIsInVzZXJfaWQiOiIxIn0.mI9jYkg1dtR7hFYgile4zfCeeYcH7A9C43TfpiTwB7Q"
+}
+
+
+###
+GET http://127.0.0.1:8000/api/tasks/
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTY0MzE4LCJpYXQiOjE3OTUxNjQwMTgsImp0aSI6IjNiOTI1NWY2YWFhNTQxNjJhNTU0M2JiM2Y0NTc5ZDM0IiwidXNlcl9pZCI6IjEifQ.9KEY5Y5LRpCQ0D9uhiyCv2QzkVgBVZNHsFCEAuOJpbY
+
+###
+PUT http://127.0.0.1:8000/api/tasks/1/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTY0NjI5LCJpYXQiOjE3OTUxNjQzMjksImp0aSI6ImU0YmE3NDk0YTNmMTQ1NDZhOTkxMjdhNjE2M2EzNjY0IiwidXNlcl9pZCI6IjEifQ.TexAWYcu4Ni8tzBOBVtoJG4WFiKTLR_yUHqp6ZeCcW4
+
+{
+    "title": "Drink Coffee",
+    "description": "demo",
+    "due_date": "2026-11-20",
+    "status": "Completed"
+}
+
+
+###
+DELETE http://127.0.0.1:8000/api/tasks/3/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTY0MzE4LCJpYXQiOjE3OTUxNjQwMTgsImp0aSI6IjNiOTI1NWY2YWFhNTQxNjJhNTU0M2JiM2Y0NTc5ZDM0IiwidXNlcl9pZCI6IjEifQ.9KEY5Y5LRpCQ0D9uhiyCv2QzkVgBVZNHsFCEAuOJpbY
+

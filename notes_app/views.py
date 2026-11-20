@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from notes_app.models import NotesDb
-from notes_app.serializers import RegisterSerializer, NotesSerializer
+from notes_app.models import NotesDb, TaskDb
+from notes_app.serializers import RegisterSerializer, NotesSerializer, TaskSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import PermissionDenied
 
@@ -79,3 +79,46 @@ class LogoutView(APIView):
     def post(self, request):
         request.user.auth_token.delete()
         return Response(data={"message":"logged out successfully"})
+    
+
+class TaskListCreateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def  get(self, request):
+        tasks = TaskDb.objects.filter(user= request.user)
+        s_instance = TaskSerializer(tasks, many=True)
+        return Response(data= s_instance.data)
+
+    def post(self, request):
+        form_data = request.data
+        s_instance = TaskSerializer(data= form_data)
+        if s_instance.is_valid():
+            s_instance.save(user= request.user)
+            return Response(data= {"message":"task posted!"}, status=201)
+        return Response(data= s_instance.errors, status=400)
+
+
+class TokenRetrieveUpdateDeleteView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get_task(self, request, id):
+        return get_object_or_404(TaskDb, id=id, user=request.user)
+
+    def get(self, request, id):
+        task = self.get_task(request, id)
+        s_instance = TaskSerializer(task)
+        return Response(data= s_instance.data)
+
+    def put(self, request, id):
+        task = self.get_task(request, id)
+        form_data = request.data
+        s_instance = TaskSerializer(data=form_data, instance= task)
+        if s_instance.is_valid():
+            s_instance.save()
+            return Response(data={"task updated":s_instance.data})
+        return Response(data= s_instance.errors, status=400)
+
+    def delete(self, request, id):
+        task = self.get_task(request, id)
+        task.delete()
+        return Response(data= {"messsage":"deleted successfully"})
