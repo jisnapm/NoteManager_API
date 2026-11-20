@@ -68,13 +68,22 @@ Content-Type: application/json
 Authorization: Token 3b930865a7e8ac8c606d366cf0d9cfc31d37f212
 
 
+
+
+
+
+
+
+
+
+
 ###
 POST http://127.0.0.1:8000/api/jwt_login/
 Content-Type: application/json
 
 {
-    "username":"ansa",
-    "password":"ansa@123"
+    "username":"jisna",
+    "password":"jisna@123"
 }
 
 
@@ -128,3 +137,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 DELETE http://127.0.0.1:8000/api/tasks/3/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTY0MzE4LCJpYXQiOjE3OTUxNjQwMTgsImp0aSI6IjNiOTI1NWY2YWFhNTQxNjJhNTU0M2JiM2Y0NTc5ZDM0IiwidXNlcl9pZCI6IjEifQ.9KEY5Y5LRpCQ0D9uhiyCv2QzkVgBVZNHsFCEAuOJpbY
 
+###
+POST http://127.0.0.1:8000/api/jwt_logout/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTY2OTU5LCJpYXQiOjE3OTUxNjY2NTksImp0aSI6Ijk1ZWZmYWRjOTcxMDQ4OGVhMDFhMmNkZjA4NzBmNDExIiwidXNlcl9pZCI6IjEifQ.xxnyiaCi2womM_y-9-Pu5Tj6fPvcW0oQuhNbEUdqDAY
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NTI1MzAzNiwiaWF0IjoxNzk1MTY2NjM2LCJqdGkiOiI3MWNkZDUyMTEyMmY0NmVhYmZmZmIxYjdlODczOThhNSIsInVzZXJfaWQiOiIxIn0.9z4fy7m-raTxsk-yPUm_-K5w1X6cmCVAyDYZFUeVqYI"
+}
